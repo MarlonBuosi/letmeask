@@ -16,3 +16,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LETMEASK_874FF }}'
           projectId: letmeask-874ff
+        env:
+          apiKey: ${{ secrets.REACT_APP_API_KEY}}
