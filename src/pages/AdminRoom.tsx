@@ -1,4 +1,4 @@
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
@@ -23,12 +23,12 @@ export function AdminRoom() {
   const { questions, title } = useRoom(roomId);
 
   async function handleEndRoom() {
-    if (window.confirm('tem certeza?')) {
+    if (window.confirm('Tem certeza que deseja encerrar a sala?')) {
       database.ref(`rooms/${roomId}`).update({
         endedAt: new Date(),
       });
+      history.push('/');
     }
-    history.push('/');
   }
 
   async function handleDeleteQuestion(questionId: string) {
@@ -57,11 +57,18 @@ export function AdminRoom() {
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+          <Link to="/">
+            <img src={logoImg} alt="Letmeask" />
+          </Link>
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>
               Encerrar Sala
+            </Button>
+            <Button isOutlined>
+              <Link style={{ textDecoration: 'none' }} to={`/help/${roomId}`}>
+                Precisa de ajuda?
+              </Link>
             </Button>
           </div>
         </div>
@@ -70,7 +77,7 @@ export function AdminRoom() {
       <main>
         <div className="room-title">
           {questions.length === 0 ? (
-            <h1>Ops! Ainda não há nenhuma pergunta na sala {title} </h1>
+            <h1>Ops! Ainda não há nenhuma pergunta na sala </h1>
           ) : (
             <h1> {title}</h1>
           )}

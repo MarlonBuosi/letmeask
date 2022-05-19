@@ -71,6 +71,13 @@ export function Room() {
             <img src={logoImg} alt="Letmeask" />
           </Link>
           <RoomCode code={roomId} />
+          <div>
+            <Button isOutlined>
+              <Link style={{ textDecoration: 'none' }} to={`/help/${roomId}`}>
+                Precisa de ajuda?
+              </Link>
+            </Button>
+          </div>
         </div>
       </header>
 
