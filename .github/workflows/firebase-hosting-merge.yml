@@ -20,4 +20,4 @@ jobs:
           channelId: live
           projectId: letmeask-874ff
         env:
-          apiKey: ${{ secrets.REACT_APP_API_KEY}}
+          apiKey: '${{ secrets.REACT_APP_API_KEY}}'
