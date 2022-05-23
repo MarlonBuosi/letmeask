@@ -17,7 +17,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LETMEASK_874FF }}'
           projectId: letmeask-874ff
         env:
-          REACT_APP_API_KEY=": ${{ secrets.REACT_APP_API_KEY}}
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY}}
           REACT_APP_AUTH_DOMAIN: '${{ secrets.REACT_APP_AUTH_DOMAIN}}'
           REACT_APP_DATABASE_URL: '${{ secrets.REACT_APP_DATABASE_URL}}'
           REACT_APP_PROJECT_ID: '${{ secrets.REACT_APP_PROJECT_ID}}'
